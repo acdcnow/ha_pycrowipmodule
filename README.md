@@ -16,17 +16,12 @@ Ensure that your Crow Runner IP Module is running the correct firmware. The stan
 In order to get that module running you must ensure that the preconditions are fulfilled:
 =========================================================================================
 
--> running a Alarm System as Runner 8/16 Connected to that an IP Module
-
--> running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
-
--> not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH standardport 5002.
-
--> WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
-
--> set the IP adress to static in order to keep a fixed IP adress at any time.
-
--> running home assistant higher then release version 2023.1.1 (lower once are not support)
+- running a Alarm System as Runner 8/16 Connected to that an IP Module
+- running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
+- not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH standardport 5002.
+- WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
+- set the IP adress to static in order to keep a fixed IP adress at any time.
+- running home assistant higher then release version 2023.1.1 (lower once are not support)
 
 
 
@@ -34,13 +29,10 @@ An setup example is given below:
 ================================
 In order to get that module running you must ensure that the preconditions are fulfilled.
 
-1: Base system is a Alarm System as Crow Runner 8/16
-
-2: Connected to that bases system is an IP Module running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
-
-3: Not connected ANY SSH connection (Firmware support just a single connection ) to SSH standard port is 5002
-
-4: WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server
+- Base system is a Alarm System as Crow Runner 8/16
+- Connected to that bases system is an IP Module running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
+- Not connected ANY SSH connection (Firmware support just a single connection ) to SSH standard port is 5002
+- WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server
    Password should be 12345678 if not changed by your installer company. 
 
 
@@ -119,33 +111,32 @@ crowipmodule:
 Changelog:
 ==========
 V2023.08:
---> requirements V0.28 to adjust the need on python 3.11.4 and fix the timeout error on code adjustments
+- requirements V0.28 to adjust the need on python 3.11.4 and fix the timeout error on code adjustments
 
 v2023.01:
-requirements update to pycrowipmodule==0.31
+- requirements update to pycrowipmodule==0.31
 
 v2022.10:
---> requirements V0.28 to adjust the need on python 3.10
+- requirements V0.28 to adjust the need on python 3.10
 
 v2021.12.0:
-
--- > state attribute update for 2021.12.0 release
--- > When HA restarts; update all entities just after the connection is established.
--- > Check network disconnects real-time.
--- > ESA waits until STATUS request
--- > Added RL1 and RL2 Relays
--- > Corrected HA 110 breaking changes
--- > SwitchDevice, BinarySensorDevice and AlarmControlPanel is deprecated,
--- > modify to extend SwitchEntity, BinarySensorEntity and AlarmControlPanelEntity
--- > Add the respository to HACS
--- > Corrected HA 103 breaking changes made on alarm_control_panel.
--- > Outputs controlling and status corrected.
--- > Removed sensor.area_a_keypad and added sensor.crow_alarm_system; this new sensor has all system related attributes only.
--- > Handle trigger based disconnection issue.
--- > Corrected some issues.
--- > Corrected deepcopy dict, which results area_keypad device attributes to be the same as alarm_control_panel.
--- > Corrected alarm trigger updates of both area_keypad and alarm_control_panel.
--- > System binary sensors are converted to alarm control panel device attributes.
--- > If 'code' configuration is missing in configuration.yaml, then keypad is on in Alarm Panel.
--- > 'code' configuration is moved to 'areas' section for area specific code.
+- state attribute update for 2021.12.0 release
+- When HA restarts; update all entities just after the connection is established.
+- Check network disconnects real-time.
+- ESA waits until STATUS request
+- Added RL1 and RL2 Relays
+- Corrected HA 110 breaking changes
+- SwitchDevice, BinarySensorDevice and AlarmControlPanel is deprecated,
+- modify to extend SwitchEntity, BinarySensorEntity and AlarmControlPanelEntity
+- Add the respository to HACS
+- Corrected HA 103 breaking changes made on alarm_control_panel.
+- Outputs controlling and status corrected.
+- Removed sensor.area_a_keypad and added sensor.crow_alarm_system; this new sensor has all system related attributes only.
+- Handle trigger based disconnection issue.
+- Corrected some issues.
+- Corrected deepcopy dict, which results area_keypad device attributes to be the same as alarm_control_panel.
+- Corrected alarm trigger updates of both area_keypad and alarm_control_panel.
+- System binary sensors are converted to alarm control panel device attributes.
+- If 'code' configuration is missing in configuration.yaml, then keypad is on in Alarm Panel.
+- 'code' configuration is moved to 'areas' section for area specific code.
 -- > Corrected some errors.
