@@ -118,13 +118,17 @@ crowipmodule:
 
 Changelog:
 ==========
+V2023.08:
+--> requirements V0.28 to adjust the need on python 3.11.4 and fix the timeout error on code adjustments
+
 v2023.01:
-requirements update to pycrowipmodule==0.31b0
+requirements update to pycrowipmodule==0.31
 
 v2022.10:
 --> requirements V0.28 to adjust the need on python 3.10
 
 v2021.12.0:
+
 -- > state attribute update for 2021.12.0 release
 -- > When HA restarts; update all entities just after the connection is established.
 -- > Check network disconnects real-time.
