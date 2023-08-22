@@ -1,4 +1,4 @@
-"""Crow/AAP IP Module init file"""
+"""Crow/AAP IP 8/16 Module init file"""
 import asyncio
 import logging
 
@@ -30,8 +30,10 @@ CONF_OUTPUTNAME = "name"
 
 DEFAULT_PORT = 5002
 DEFAULT_KEEPALIVE = 60
+"""CDEFAULT_KEEPALIVE = 60"""
 DEFAULT_ZONETYPE = "opening"
 DEFAULT_TIMEOUT = 10
+"""DEFAULT_TIMEOUT = 10"""
 
 SIGNAL_ZONE_UPDATE = "crowipmodule.zones_updated"
 SIGNAL_AREA_UPDATE = "crowipmodule.areas_updated"
