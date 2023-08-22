@@ -1,5 +1,5 @@
 crowipmodule:
-  host: 10.0.0.XXX 
+  host: XXX.XXX.XXX.XXX 
   port: 5002 
   keepalive_interval: 60
   timeout: 20
