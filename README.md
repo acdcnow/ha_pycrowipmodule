@@ -104,9 +104,7 @@ crowipmodule:
 Changelog:
 ==========
 Core2023.08:
-- requirements V0.31 to
 - tryfix on python 3.11 and fix the update error on binary sensors
-- requirements update to pycrowipmodule==0.31b0
 - requirements V0.28 to adjust the need on python 3.10
 - state attribute update for 2021.12.0 release
 - When HA restarts; update all entities just after the connection is established.
