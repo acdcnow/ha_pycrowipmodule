@@ -1,4 +1,4 @@
-"""Support for Crow IP Module-based alarm control panel"""
+"""Support for Crow IP 8/16 Module-based alarm control panel"""
 import logging
 
 import voluptuous as vol
