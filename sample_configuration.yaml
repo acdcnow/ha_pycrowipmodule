@@ -1,19 +1,21 @@
 crowipmodule:
-  host: 192.168.1.10
-  port: 5002
+  host: 10.0.0.XXX 
+  port: 5002 
   keepalive_interval: 60
   timeout: 20
+  
   areas:
     1:
       name: 'Home'
+      code: '1234'
     2:
-      name: 'None'
-      code: '0001'
+      name: 'None'  
+      code: '1234' 
   outputs:
     3:
-      name: 'Door 1'
+      name: 'Main Router'
     4:
-      name: 'Smoke Detector Power'
+      name: 'USV Restart'
   zones:
     1:
       name: 'Entrance'
