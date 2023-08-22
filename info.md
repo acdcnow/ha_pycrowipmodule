@@ -93,7 +93,7 @@ crowipmodule:
 Changelog
 
 V2023.08: 
-- requirements V0.31 to adjust the need on python 3.11 and fix the timeout error on code adjustments
+- requirements V0.28 to adjust the need on python 3.11 and fix the timeout error on code adjustments
 - state attribute update
 - When HA restarts; update all entities just after the connection is established. 
 - Check network disconnects real-time. 
