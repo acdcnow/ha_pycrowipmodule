@@ -9,7 +9,7 @@ The firmware version required for this component is **Ver 2.10.3628 2017 Oct 20 
 Home Assistant Crow IP Module
 =============================
 
-For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2023.1.1 and higher (Python 3.10)
+For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2023.8.0 and higher (Python 3.11)
 Ensure that your Crow Runner IP Module is running the correct firmware. The standard firmware from Crow or AAP will NOT work with this version!!
 
 
@@ -21,7 +21,7 @@ In order to get that module running you must ensure that the preconditions are f
 - not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH standardport 5002.
 - WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
 - set the IP adress to static in order to keep a fixed IP adress at any time.
-- running home assistant higher then release version 2023.1.1 (lower once are not support)
+- running home assistant higher then release version 2023.8.0 (lower once are not support)
 
 
 
@@ -111,10 +111,11 @@ crowipmodule:
 Changelog:
 ==========
 V2023.08:
-- requirements V0.28 to adjust the need on python 3.11.4 and fix the timeout error on code adjustments
+- requirements V0.31 to
+- tryfix on python 3.11 and fix the update error on binary sensors
 
 v2023.01:
-- requirements update to pycrowipmodule==0.31
+- requirements update to pycrowipmodule==0.31b0
 
 v2022.10:
 - requirements V0.28 to adjust the need on python 3.10
@@ -139,4 +140,4 @@ v2021.12.0:
 - System binary sensors are converted to alarm control panel device attributes.
 - If 'code' configuration is missing in configuration.yaml, then keypad is on in Alarm Panel.
 - 'code' configuration is moved to 'areas' section for area specific code.
--- > Corrected some errors.
+- Corrected some errors.
