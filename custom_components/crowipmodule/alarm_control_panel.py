@@ -152,7 +152,10 @@ class CrowIPModuleAlarm(CrowIPModuleDevice, alarm.AlarmControlPanelEntity):
     async def async_alarm_arm_home(self, code=None):
         """Send arm home command."""
         self.hass.data[DATA_CRW].arm_stay()
-        self.hass.data[DATA_CRW].send_keypress(str(self._code))
+        if code:
+            self.hass.data[DATA_CRW].send_keypress(str(code))
+        else:
+            self.hass.data[DATA_CRW].send_keypress(str(self._code))
 
     async def async_alarm_arm_away(self, code=None):
         """Send arm away command."""
