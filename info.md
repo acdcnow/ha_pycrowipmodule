@@ -1,5 +1,5 @@
 Home Assistant Crow IP Module
-For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2021.12.5 and higer
+For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2023.08.0 and higer
 
 Ensure that your Crow Runner IP Module is running the correct firmware. The standard firmware from Crow or AAP will NOT work with this version!!
 
@@ -10,7 +10,7 @@ running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
 not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH port 5002.
 WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
 set the IP adress to static in order to keep a fixed IP adress at any time.
-running home assistant higher then release version 2021.12.5 (lower once are not support)
+running home assistant higher then release version 2023.08.0 (lower once are not support)
 An setup example is given below:
 
 In order to get that module running you must ensure that the preconditions are fulfilled.
