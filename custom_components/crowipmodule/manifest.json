@@ -1,13 +1,16 @@
 {
     "domain": "crowipmodule",
-    "name": "Crow/AAP Alarm IP Module",
-    "documentation": "https://github.com/febalci/ha_pycrowipmodule",
+    "name": "Crow/AAP Alarm IP Module 8/16",
+    "documentation": "https://github.com/acdcnow/ha_pycrowipmodule",
+    "issue_tracker": "https://github.com/acdcnow/ha_pycrowipmodule/issues",
     "requirements": [
         "pycrowipmodule==0.31"
       ],    
     "dependencies": [],
     "codeowners": [
-        "@febalci"
+        "@febalci",
+        "@acdcnow"
     ],
-    "version": "0.31"
+    "version": "V2023.08",
+    "config_flow": false
 }
