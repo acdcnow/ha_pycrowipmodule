@@ -4,7 +4,7 @@
     "documentation": "https://github.com/acdcnow/ha_pycrowipmodule",
     "issue_tracker": "https://github.com/acdcnow/ha_pycrowipmodule/issues",
     "requirements": [
-        "pycrowipmodule==0.31"
+        "pycrowipmodule==0.28"
       ],    
     "dependencies": [],
     "codeowners": [
