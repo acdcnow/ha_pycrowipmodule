@@ -1,29 +1,22 @@
-# Home Assistant Crow IP Module Custom Component
+# Home Assistant Crow IP 8/16 Module Custom Component
 
-This is a custom component for Crow Runner / Arrowhead AAP 8/16 Home Alarm System IP Module Integration to Home Assistant.
+all credits to @febalci (https://github.com/febalci) for his great work.
 
+His thread in HA community is:
 https://community.home-assistant.io/t/custom-component-crow-runner-arrowhead-aap-8-16-alarm-ip-module/130588?u=febalci
-
-The firmware version required for this component is **Ver 2.10.3628 2017 Oct 20 09:48:43** and it is specifically written for telnet connection to home automation software. You will need to contact AAP from their email address in that web page and request this firmware.
-
-Home Assistant Crow IP Module
-=============================
 
 For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2023.8.0 and higher (Python 3.11)
 Ensure that your Crow Runner IP Module is running the correct firmware. The standard firmware from Crow or AAP will NOT work with this version!!
-
 
 In order to get that module running you must ensure that the preconditions are fulfilled:
 =========================================================================================
 
 - running a Alarm System as Runner 8/16 Connected to that an IP Module
-- running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
+- The firmware version required for this component is **Ver 2.10.3628 2017 Oct 20 09:48:43** and it is specifically written for telnet connection to home automation software. You will need to contact AAP from their email address in that web page and request this firmware.
 - not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH standardport 5002.
 - WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
 - set the IP adress to static in order to keep a fixed IP adress at any time.
 - running home assistant higher then release version 2023.8.0 (lower once are not support)
-
-
 
 An setup example is given below:
 ================================
@@ -33,7 +26,7 @@ In order to get that module running you must ensure that the preconditions are f
 - Connected to that bases system is an IP Module running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
 - Not connected ANY SSH connection (Firmware support just a single connection ) to SSH standard port is 5002
 - WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server
-   Password should be 12345678 if not changed by your installer company. 
+- Password should be 12345678 if not changed by your installer company. 
 
 
 Config Code:
@@ -110,17 +103,11 @@ crowipmodule:
 
 Changelog:
 ==========
-V2023.08:
+Core2023.08:
 - requirements V0.31 to
 - tryfix on python 3.11 and fix the update error on binary sensors
-
-v2023.01:
 - requirements update to pycrowipmodule==0.31b0
-
-v2022.10:
 - requirements V0.28 to adjust the need on python 3.10
-
-v2021.12.0:
 - state attribute update for 2021.12.0 release
 - When HA restarts; update all entities just after the connection is established.
 - Check network disconnects real-time.
