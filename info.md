@@ -91,14 +91,25 @@ crowipmodule:
       type: 'door'
 ```
 Changelog
+
 V2023.08: 
 -- > requirements V0.31 to adjust the need on python 3.11 and fix the timeout error on code adjustments
+
 -- > state attribute update
+
 -- > When HA restarts; update all entities just after the connection is established. 
+
 -- > Check network disconnects real-time. 
+
 -- > ESA waits until STATUS request 
+
 -- > Added RL1 and RL2 Relays 
+
 -- > SwitchDevice, BinarySensorDevice and AlarmControlPanel is deprecated, 
+
 -- > modify to extend SwitchEntity, BinarySensorEntity and AlarmControlPanelEntity 
+
 -- > Add the respository to HACS 
+
 -- > update arm and home based on the different used case from my system
+
