@@ -1,4 +1,4 @@
-"""Support for Crow Alarm IP Module."""
+"""Support for Crow Alarm IP 8/16 Module."""
 import datetime
 import logging
 
