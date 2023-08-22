@@ -15,10 +15,10 @@ An setup example is given below:
 
 In order to get that module running you must ensure that the preconditions are fulfilled.
 
-1: Base system is a Alarm System as Crow Runner 8/16
-2: Connected to that bases system is an IP Module running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
-3: Not connected ANY SSH connection (Firmware support just a single connection ) to SSH standard port is 5002
-4: WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server
+- Base system is a Alarm System as Crow Runner 8/16
+- Connected to that bases system is an IP Module running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
+- Not connected ANY SSH connection (Firmware support just a single connection ) to SSH standard port is 5002
+- WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server
    Password should be 12345678 if not changed by your installer company. 
 
 
