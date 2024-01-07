@@ -1,19 +1,22 @@
-Home Assistant Crow IP Module
-For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2023.08.0 and higer
+# Crow Runner 8/16 Home Assistant IP Module integration:
 
-Ensure that your Crow Runner IP Module is running the correct firmware. The standard firmware from Crow or AAP will NOT work with this version!!
+this is for Crow Runner 8/16 with IP module and special firmware running for Home Assistant Version 2024.01.0 and higer.
+Ensure that your Crow Runner IP module is running the correct firmware. 
+### The standard firmware from Crow Runner 8/16 Ip Module will NOT work with this code in HA, NO support of such versions!!
 
-In order to get that module running you must ensure that the deconditions are fulfilled: That will be:
+## In order to get that module running you must ensure that the deconditions are fulfilled: 
+### That will be:
 
-running a Alarm System as Runner 8/16 Connected to that an IP Module
-running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
-not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH port 5002.
-WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
-set the IP adress to static in order to keep a fixed IP adress at any time.
-running home assistant higher then release version 2023.08.0 (lower once are not support)
-An setup example is given below:
+- Use Crow Runner 8/16 connected to an IP module from Crow for this alarm system.
+- Using firmware Ver 2.10.3628 2017 Oct 20 09:48:43 on the IP module
+- Not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH port 5002.
+- WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
+- Set the IP adress to static in order to keep a fixed IP adress at any time.
+- Running Home Assistant higher then release 2024.01.0 (lower once mayowrk but are not support):
 
-In order to get that module running you must ensure that the preconditions are fulfilled.
+An setup example is given below: (config_flow setup is in progress)
+
+### In order to get that module running you must ensure that the preconditions are fulfilled.
 
 - Base system is a Alarm System as Crow Runner 8/16
 - Connected to that bases system is an IP Module running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
@@ -91,6 +94,11 @@ crowipmodule:
       type: 'door'
 ```
 Changelog
+
+V2024.01:
+- config_flow adjustments
+- min req. HA 2024.01.2
+- pycrowipmodule set to 0.28 in order to avoid the issues with binary_sensors not updated.
 
 V2023.08: 
 - requirements V0.28 to adjust the need on python 3.11 and fix the timeout error on code adjustments
