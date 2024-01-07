@@ -4,13 +4,13 @@
     "documentation": "https://github.com/acdcnow/ha_pycrowipmodule",
     "issue_tracker": "https://github.com/acdcnow/ha_pycrowipmodule/issues",
     "requirements": [
-        "pycrowipmodule==0.28"
+        "pycrowipmodule==0.31"
       ],    
     "dependencies": [],
     "codeowners": [
         "@febalci",
         "@acdcnow"
     ],
-    "version": "V2023.08",
+    "version": "V2024.01",
     "config_flow": false
 }
