@@ -64,28 +64,13 @@ class crowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             self._outputs = user_input.get(CONF_OUTPUTS)
 
             try:
-                # pylint: disable=no-value-for-parameter
-                #session = async_get_clientsession(self.hass)
-                #connection = AudiConnectAccount(
-                #    session=session,
-                #    username=vol.Email()(self._username),
-                #    password=self._password,
-                #    country=self._region,
-                #    spin=self._spin,
-                #)
-
-                #if await connection.try_login(False) == False:
-                #    raise Exception(
-                #        "Unexpected error communicating with the Audi server"
-                #    )
-
             #except vol.Invalid:
-            #    errors[CONF_USERNAME] = "invalid_username"
+            #    errors[CONF_HOST] = "invalid_hostname"
             #except Exception:
-            #    errors["base"] = "invalid_credentials"
+            #    errors["base"] = "invalid_code"
             #else:
-            #    if self._username in configured_accounts(self.hass):
-            #        errors["base"] = "user_already_configured"
+            #    if self._host in configured_accounts(self.hass):
+            #        errors["base"] = "host_already_configured"
                 else:
                     return self.async_create_entry(
                         title=f"{self._host}",
@@ -136,20 +121,12 @@ class crowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             keepalive_interval = 30
 
         try:
-           # session = async_get_clientsession(self.hass)
-           # connection = AudiConnectAccount(
-           #     session=session,
-           #     username=username,
-           #     password=password,
-           #     country=region,
-           #     spin=spin,
-           # )
 
            # if await connection.try_login(False) == False:
-           #     raise Exception("Unexpected error communicating with the Audi server")
+           #     raise Exception("Unexpected error communicating with the IP module")
 
         #except Exception:
-        #    _LOGGER.error("Invalid credentials for %s", username)
+        #    _LOGGER.error("Invalid credentials for %s", host)
         #    return self.async_abort(reason="invalid_credentials")
 
         return self.async_create_entry(
