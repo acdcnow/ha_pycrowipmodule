@@ -12,5 +12,5 @@
         "@acdcnow"
     ],
     "version": "V2024.01",
-    "config_flow": false
+    "config_flow": true
 }
