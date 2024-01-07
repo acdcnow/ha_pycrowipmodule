@@ -1,11 +1,10 @@
-# Home Assistant Crow IP 8/16 Module Custom Component
+# Crow IP 8/16 Module using HACS for Home Assistant
 
-all credits to @febalci (https://github.com/febalci) for his great work.
+all credits to @febalci [LINK](https://github.com/febalci) for his great work.
 
-His thread in HA community is:
-https://community.home-assistant.io/t/custom-component-crow-runner-arrowhead-aap-8-16-alarm-ip-module/130588?u=febalci
+His thread in HA community is: [Links to HA community](https://community.home-assistant.io/t/custom-component-crow-runner-arrowhead-aap-8-16-alarm-ip-module/130588?u=febalci)
 
-For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2023.8.0 and higher (Python 3.11)
+For Crow Runner 8/16 with IP Module and special Firmware running via SSH Running in Home Assistant Version 2024.1.2 and higher (Python 3.11.6)
 Ensure that your Crow Runner IP Module is running the correct firmware. The standard firmware from Crow or AAP will NOT work with this version!!
 
 In order to get that module running you must ensure that the preconditions are fulfilled:
@@ -16,7 +15,7 @@ In order to get that module running you must ensure that the preconditions are f
 - not having ANY SSH connection active to that IP Module (Firmware support just a single connection ) to SSH standardport 5002.
 - WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server.
 - set the IP adress to static in order to keep a fixed IP adress at any time.
-- running home assistant higher then release version 2023.8.0 (lower once are not support)
+- running home assistant higher then release version 2024.1.2 (lower once are not support)
 
 An setup example is given below:
 ================================
@@ -26,7 +25,15 @@ In order to get that module running you must ensure that the preconditions are f
 - Connected to that bases system is an IP Module running Firmware Ver 2.10.3628 2017 Oct 20 09:48:43
 - Not connected ANY SSH connection (Firmware support just a single connection ) to SSH standard port is 5002
 - WebUi can be reached with IP adress that is given in the first Bootup via DHCP Server
-- Password should be 12345678 if not changed by your installer company. 
+- Password should be 12345678 if not changed by your installer company.
+
+
+Add customer repo to your HA HACS installation:
+===============================================
+
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?repository=ha_pycrowipmodule&category=Integration&owner=acdcnow)
+
 
 
 Config Code:
@@ -103,6 +110,8 @@ crowipmodule:
 
 Changelog:
 ==========
+Core2024.01:
+- HACS asjustments and prepair for config_flow.py setup
 Core2023.08:
 - tryfix on python 3.11 and fix the update error on binary sensors
 - requirements V0.28 to adjust the need on python 3.10
