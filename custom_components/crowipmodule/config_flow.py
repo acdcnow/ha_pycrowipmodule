@@ -1,141 +1,48 @@
-from collections import OrderedDict
-import logging
-import voluptuous as vol
-from datetime import timedelta
-
 from homeassistant import config_entries
-from homeassistant.const import (
+from homeassistant.const import CONF_HOST, CONF_PORT, CONF_CODE
+from .const import (
     DOMAIN,
-    CONF_HOST,
-    DATA_CRW,
-    CONF_CODE,
     CONF_CROW_KEEPALIVE,
-    CONF_CROW_PORT,
-    CONF_AREANAME,
     CONF_AREAS,
-    CONF_ZONENAME,
+    CONF_AREANAME,
     CONF_ZONES,
-    CONF_ZONETYPE,
-    CONF_OUTPUTS,
-    CONF_OUTPUTNAME,
+    CONF_ZONENAME,
     DEFAULT_PORT,
     DEFAULT_KEEPALIVE,
 )
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
-from homeassistant.core import callback
 
-from .const import DOMAIN, CONF_HOST, CONF_CROW_PORT, CONF_CODE, CONF_CROW_KEEPALIVE, CONF_AREAS, CONF_AREANAME, CONF_ZONES, CONF_ZONENAME, CONF_ZONETYPE,
-
-_LOGGER = logging.getLogger(__name__)
-
-
-@callback
-def configured_accounts(hass):
-    """Return tuple of configured host."""
-    entries = hass.config_entries.async_entries(DOMAIN)
-    if entries:
-        return (entry.data[CONF_HOST] for entry in entries)
-    return ()
-
-
-@config_entries.HANDLERS.register(DOMAIN)
-class crowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    def __init__(self):
-        """Initialize."""
-        self._host = vol.UNDEFINED
-        self._port = vol.UNDEFINED
-        self._code = vol.UNDEFINED
-        self._area = vol.UNDEFINED 
-        self._skeepalive_interval = 60
-        self._outputs = vol.UNDEFINED 
-
-  
+class CrowConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+    VERSION = 1
+    CONNECTION_CLASS = config_entries.CONN_CLASS_UNKNOWN
 
     async def async_step_user(self, user_input=None):
-        """Handle a user initiated config flow."""
-        errors = {}
-
         if user_input is not None:
-            self._host = user_input[CONF_HOST]
-            self._port = user_input[CONF_CROW_PORT]
-            self._code = user_input.get(CONF_CODE)
-            self._area = user_input.get(CONF_AREAS)
-            self._keepalive_interval = user_input[CONF_CROW_KEEPALIVE]
-            self._outputs = user_input.get(CONF_OUTPUTS)
-
-            try:
-            #except vol.Invalid:
-            #    errors[CONF_HOST] = "invalid_hostname"
-            #except Exception:
-            #    errors["base"] = "invalid_code"
-            #else:
-            #    if self._host in configured_accounts(self.hass):
-            #        errors["base"] = "host_already_configured"
-                else:
-                    return self.async_create_entry(
-                        title=f"{self._host}",
-                        data={
-                            CONF_HOST: self._host,
-                            CONF_CROW_PORT: self._port,
-                            CONF_CODE: self._code,
-                            CONF_AREAS: self._area,
-                            CONF_CROW_KEEPALIVE: self._keepalive_interval,
-                            CONF_OUTPUTS: self._outputs,
-                        },
-                    )
-
-        data_schema = OrderedDict()
-        data_schema[vol.Required(CONF_HOST, default=self._host)] = str
-        data_schema[vol.Required(CROW_PORT, default=self._port)] = str
-        data_schema[vol.Required(CONF_CODE, default=self._code)] = str
-        data_schema[vol.Required(CONF_AREAS, default=self._area)] = str
-        data_schema[
-            vol.Optional(CONF_CROW_KEEPALIVE, default=DEFAULT_KEEPALIVE)
-        ] = int
+            return self.async_create_entry(
+                title=user_input[CONF_HOST],
+                data={
+                    CONF_HOST: user_input[CONF_HOST],
+                    CONF_PORT: user_input.get(CONF_PORT, DEFAULT_PORT),
+                    CONF_CODE: user_input[CONF_CODE],
+                    CONF_CROW_KEEPALIVE: user_input.get(CONF_CROW_KEEPALIVE, DEFAULT_KEEPALIVE),
+                    CONF_AREAS: user_input[CONF_AREAS],
+                    CONF_AREANAME: user_input[CONF_AREANAME],
+                    CONF_ZONES: user_input[CONF_ZONES],
+                    CONF_ZONENAME: user_input[CONF_ZONENAME],
+                },
+            )
 
         return self.async_show_form(
-            step_id="host",
-            data_schema=vol.Schema(data_schema),
-            errors=errors,
-        )
-
-    async def async_step_import(self, user_input):
-        """Import a config flow from configuration."""
-        host = user_input[CONF_HOST]
-        port = user_input[CONF_CROW_PORT]
-
-        code = user_input[CONF_CODE]
-        if user_input.get(CONF_SPIN):
-            spin = user_input[CONF_SPIN]
-
-        area = "1"
-        if user_input.get(CONF_AREAS):
-            area = user_input.get(CONF_AREAS)
-
-        keepalive_interval = 60
-
-        if user_input.get(CONF_CROW_KEEPALIVE):
-            keepalive_interval = user_input[CONF_CROW_KEEPALIVE]
-
-        if keepalive_interval < 30:
-            keepalive_interval = 30
-
-        try:
-
-           # if await connection.try_login(False) == False:
-           #     raise Exception("Unexpected error communicating with the IP module")
-
-        #except Exception:
-        #    _LOGGER.error("Invalid credentials for %s", host)
-        #    return self.async_abort(reason="invalid_credentials")
-
-        return self.async_create_entry(
-            title=f"{host} (from configuration)",
-            data={
-                CONF_HOST: host,
-                CONF_CROW_PORT: port,
-                CONF_AREA: area,
-                CONF_CODE: code,
-                CONF_CROW_KEEPALIVE: keepalive_interval,
-            },
+            step_id="user",
+            data_schema=vol.Schema(
+                {
+                    vol.Required(CONF_HOST): str,
+                    vol.Optional(CONF_PORT, default=DEFAULT_PORT): int,
+                    vol.Required(CONF_CODE): str,
+                    vol.Optional(CONF_CROW_KEEPALIVE, default=DEFAULT_KEEPALIVE): bool,
+                    vol.Required(CONF_AREAS): list,
+                    vol.Required(CONF_AREANAME): str,
+                    vol.Required(CONF_ZONES): list,
+                    vol.Required(CONF_ZONENAME): str,
+                }
+            ),
         )
